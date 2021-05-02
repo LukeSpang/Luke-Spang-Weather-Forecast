@@ -1,0 +1,7 @@
+#gradient{
+    background-image: linear-gradient(to right, blue, purple);
+    height: 100px;
+    text-align: center;
+    padding-top: 15px;
+    color: white;
+}
