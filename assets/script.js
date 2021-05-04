@@ -1,24 +1,23 @@
-var requestUrl = 'pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={2d7b3d6c8f91c546eebe47453238d33a}'
 
-console.log(requestUrl);
+
 
 var searchBtn = $('#searchBtn');
 var userCity = $('#searchBtn').val();
 
 var location = $('#location')
 
+const apiKey = "2d7b3d6c8f91c546eebe47453238d33a";
 
-function handleSubmission(event){
-    event.preventDefault();
+const input = document.querySelector('#location');
 
-    var locationVal = location.val();
 
-    if (!locationVal){
-        console.error('You must search a city');
-        return;
-    }
-    searchApi(locationVal);
-}
+searchBtn.addeventListener('click', e => {
+    e.preventDefault();
+    const inputVal = input.value;
+})
+console.log(inputVal);
 
-searchBtn.addeventListener('click', handleSubmission);
+ 
+
+
 
