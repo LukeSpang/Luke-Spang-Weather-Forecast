@@ -1,23 +1,21 @@
+console.log('hello');
+
+var searchBtn = document.getElementById("searchBtn");
+var citySearched = $('#location').val();
 
 
-
-var searchBtn = $('#searchBtn');
-var userCity = $('#searchBtn').val();
-
-var location = $('#location')
-
-const apiKey = "2d7b3d6c8f91c546eebe47453238d33a";
-
-const input = document.querySelector('#location');
-
-
-searchBtn.addeventListener('click', e => {
-    e.preventDefault();
-    const inputVal = input.value;
+$('#searchBtn').on('click', function(){
+    var currentSearched = $('#location').val();
+    console.log('this is the city searched', currentSearched);
 })
-console.log(inputVal);
 
- 
+var weatherUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${citySearched}&appid=2d7b3d6c8f91c546eebe47453238d33a`
 
-
-
+$.ajax({
+    url: weatherUrl,
+    method: 'GET',
+})
+.then(function (response){
+    console.log('ajax response');
+    console.log(response);
+})
