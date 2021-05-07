@@ -60,7 +60,7 @@ $('#searchBtn').on('click',function(fiveForecast){
     .then(function(data){
         console.log(data);
         $('#forecastList').empty();
-        for (let i = 0; i < 5; i++) {
+        for (let i = 4; i < 40; i+=8) {
             var cityContainer = document.createElement('div')
             var cityDateContainer = document.createElement('p') 
             var weatherIconContainer = document.createElement('img')
@@ -78,7 +78,9 @@ $('#searchBtn').on('click',function(fiveForecast){
             cityDateContainer
 
             
-
+            var cityDate = data.list[i].dt_txt
+            cityDateContainer.append(cityDate)
+            
             var tempF = data.list[i].main.temp
             tempContainer.append(tempF)
 

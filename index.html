@@ -12,20 +12,21 @@
       <main>
         <div id="search" class="col-md-3 mx-4 my-2 ui-widget border-bottom border-dark pb-3 w-25">
             <form id="locationForm">
+                <p>Enter the name of a city to view the current weather as well as a 5 day forecast!</p>
                 <input id="location" type="text" class="col my-3" placeholder="Search City"></input></form>
             <button class="btn btn-primary col" id="searchBtn">Search</button>
           </div>
         <div id="listContainer"><ul id='previousSearch'></ul></div>
-        <div id="currentForecast" class="col-md-8">
+        <div id="currentForecast" class="col-md-8 mb-2">
             <div class="row mx-1 border border-dark">
             <div class="todayCurrentCity col-12 h3 font-weight-bold">City:<span id = "currentCity"></span><br><span id ="currentDate"></span><br>
                 <img id="currentIcon" src='' alt='' class='float-right'></div> 
-            <div class="col-12">Temperature: <span id="currentTemp"></span></div>
-            <div class="col-12">Wind: <span id="currentWind"></span></div>
+            <div class="col-12">Temperature (F): <span id="currentTemp"></span></div>
+            <div class="col-12">Wind Speed (mph): <span id="currentWind"></span></div>
             <div class="col-12">Humidity: <span id="currentHumidity"></span></div>
             </div>
         </div>
-        <div class='row'>
+        <div class='row mx-auto card-deck "p-3 mb-2 bg-primary text-white" mb-2'>
             <div class='forecast'>
                 <div class='container-fluid m1-2'>
                     <div class='row p-2'>
