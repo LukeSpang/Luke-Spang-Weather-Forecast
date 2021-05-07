@@ -61,6 +61,7 @@ $('#searchBtn').on('click',function(){
     })
     .then(function(data){
         console.log(data);
+        $('#forecastList').empty();
         for (let i = 0; i < 5; i++) {
             var cityContainer = document.createElement('div')
             var cityDateContainer = document.createElement('p') 
