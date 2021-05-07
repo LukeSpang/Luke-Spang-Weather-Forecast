@@ -29,31 +29,6 @@ var forecastApi = 'http://api.openweathermap.org/data/2.5/forecast?q='
 
 
 $('#searchBtn').on('click',function(){
-    fetch(forecastApi+input.value+apiKey+units)
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
-
-      response.json().then(function(data) {
-        console.log(data);
-
-      });
-    }
-  )
-  .catch(function(err) {
-    console.log('Fetch Error :-S', err);
-  });
-})
-
-function weatherCurrent(){
-    $('#currentDate').text()
-}
-
-$('#searchBtn').on('click',function(){
     fetch(api+input.value+apiKey+units)
     .then(response => response.json())
     .then(data => {
@@ -74,7 +49,9 @@ $('#searchBtn').on('click',function(){
     })
     
     .catch(console.log())
-})
+    localStorage.setItem('previous city', input.value)
+});
+
 
 
 $('#searchBtn').on('click',function(){
@@ -91,12 +68,16 @@ $('#searchBtn').on('click',function(){
             var windSpeedContainer = document.createElement('p')
             var humidityContainer = document.createElement('p')
             
+            cityContainer.classList.add('card')
+
             cityContainer.append(cityDateContainer, tempContainer, windSpeedContainer, humidityContainer)
 
-            tempContainer.textContent = 'Temperature: F'
+            tempContainer.textContent = 'Temperature in F: '
             windSpeedContainer.textContent = 'Wind Speed: '
             humidityContainer.textContent = 'Humidity: '
             cityDateContainer
+
+            
 
             var tempF = data.list[i].main.temp
             tempContainer.append(tempF)
@@ -113,3 +94,10 @@ $('#searchBtn').on('click',function(){
     })
 }
 )
+
+
+
+$('#searchBtn').on('click',function(event){
+    var lastCity = localStorage.getItem('previous city')
+    $('#previousSearch').prepend(`<button class="btn btn-secondary col mb-2 searchBtn">${lastCity}</button>`)
+})
