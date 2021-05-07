@@ -14,12 +14,12 @@
             <form id="locationForm">
                 <input id="location" type="text" class="col my-3" placeholder="Search City"></input></form>
             <button class="btn btn-primary col" id="searchBtn">Search</button>
-            <ul id='previousSearch'></ul>
-
           </div>
+        <div id="listContainer"><ul id='previousSearch'></ul></div>
         <div id="currentForecast" class="col-md-8">
             <div class="row mx-1 border border-dark">
-            <div class="todayCurrentCity col-12 h3 font-weight-bold">City:<span id = "currentCity"></span><br><span id ="currentDate"></span><span id="currentIcon"></span></div> 
+            <div class="todayCurrentCity col-12 h3 font-weight-bold">City:<span id = "currentCity"></span><br><span id ="currentDate"></span><br>
+                <img id="currentIcon" src='' alt='' class='float-right'></div> 
             <div class="col-12">Temperature: <span id="currentTemp"></span></div>
             <div class="col-12">Wind: <span id="currentWind"></span></div>
             <div class="col-12">Humidity: <span id="currentHumidity"></span></div>
