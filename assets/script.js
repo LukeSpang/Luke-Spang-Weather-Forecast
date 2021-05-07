@@ -1,6 +1,6 @@
 console.log('hello');
 
-var api = 'https://api.openweathermap.org/data/2.5/weather?q=';
+var api = 'http://api.openweathermap.org/data/2.5/weather?q=';
 var apiKey = '&appid=2d7b3d6c8f91c546eebe47453238d33a';
 var units = '&units=imperial';
 var input = document.getElementById('location');
@@ -61,7 +61,7 @@ $('#searchBtn').on('click',function(){
     })
     .then(function(data){
         console.log(data);
-        for (let i = 4; i < 40; i+=8) {
+        for (let i = 0; i < 5; i++) {
             var cityContainer = document.createElement('div')
             var cityDateContainer = document.createElement('p') 
             var tempContainer = document.createElement('p')
@@ -89,6 +89,8 @@ $('#searchBtn').on('click',function(){
             humidityContainer.append(humidityF)
 
             forecastList.append(cityContainer)
+
+        
 
         }
     })
