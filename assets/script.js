@@ -1,6 +1,6 @@
 console.log('hello');
 
-var api = 'https://api.openweathermap.org/data/2.5/weather?q=';
+var api = 'http://api.openweathermap.org/data/2.5/weather?q=';
 var apiKey = '&appid=2d7b3d6c8f91c546eebe47453238d33a';
 var units = '&units=imperial';
 var input = document.getElementById('location');
@@ -24,7 +24,7 @@ var hOne = document.querySelector('.humidOne')
 
 
 
-var forecastApi = 'https://api.openweathermap.org/data/2.5/forecast?q='
+var forecastApi = 'http://api.openweathermap.org/data/2.5/forecast?q='
 
 
 
