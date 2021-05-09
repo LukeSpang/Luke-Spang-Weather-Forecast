@@ -1,5 +1,5 @@
 console.log('hello');
-
+//api link for current
 var api = 'https://api.openweathermap.org/data/2.5/weather?q=';
 var apiKey = '&appid=2d7b3d6c8f91c546eebe47453238d33a';
 var units = '&units=imperial';
@@ -19,11 +19,11 @@ var currentIcon = document.getElementById('currentIcon')
 
 
 
-
+//api link for 5 day
 var forecastApi = 'https://api.openweathermap.org/data/2.5/forecast?q='
 
 
-
+//function for current weather
 $('#searchBtn').on('click',function(currentWeather){
     fetch(api+input.value+apiKey+units)
     .then(response => response.json())
@@ -51,7 +51,7 @@ $('#searchBtn').on('click',function(currentWeather){
 });
 
 
-
+//generates five day forecast and elements to store
 $('#searchBtn').on('click',function(fiveForecast){
     fetch(forecastApi+input.value+apiKey+units)
     .then(function(response){
@@ -80,7 +80,7 @@ $('#searchBtn').on('click',function(fiveForecast){
             
             var cityDate = data.list[i].dt_txt
             cityDateContainer.append(cityDate)
-            
+
             var tempF = data.list[i].main.temp
             tempContainer.append(tempF)
 
@@ -98,12 +98,20 @@ $('#searchBtn').on('click',function(fiveForecast){
 
         
 
-        }
+        }//creates buttons of search history
         var lastCity = localStorage.getItem('previous city')
     $('#previousSearch').prepend(`<button class="btn btn-secondary col mb-2 searchBtn">${lastCity}</button>`)
     })
 }
 )
+//second attempt at history button
+document.querySelectorAll('btn').forEach(item => {
+    item.addEventListener('click', event => {
+        fiveForecast(recallCity);
+        currentWeather(recallCity);
+      //handle click
+    })
+  })
 //history button research, not working
 $('.searchBtn').on('click', function(event){
     var recallCity = event.target.innerText
